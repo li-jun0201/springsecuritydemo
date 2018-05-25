@@ -1,0 +1,68 @@
+server:
+    port: 80
+    context-path: /security
+spring:
+    jpa:
+        hibernate:
+            ddl-auto: update
+            database-platform: org.hibernate.dialect.MySQLDialect
+        show-sql: true
+        properties:
+            hibernate:
+                cache:
+                    region:
+                        factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+    jackson:
+        serialization:
+            indent_output: true
+    datasource:
+        url: jdbc:mysql://******?useSSL=false&useUnicode=true&characterEncoding=utf-8
+        username: ******
+        password: ******
+        type: com.zaxxer.hikari.HikariDataSource
+        hikari:
+            maximum-pool-size: 3
+    thymeleaf:
+        cache: false
+    devtools: # 热部署
+        restart:
+          enabled: true
+          additional-paths: src/main/java
+
+    redis:
+         host: ******
+         port: 6379
+         pool:
+             max-active: 8
+             max-wait: 1
+             max-idle: 8
+             min-idle: 0
+         timeout: 1000
+         password: ******
+         database: 14
+logging:
+    level:
+    org.springframework: DEBUG
+    com.fosun.newmall: DEBUG
+    data: DEBUG
+    security: DEBUG
+jwt:
+    header: Authorization
+    secret: mySecret
+    expiration: 604800
+    tokenHead: "Bearer "
+    token:
+        expire: 3600000
+    register:
+        expire: 6000
+    route:
+        authentication:
+            register: auth/register
+            registerCode: regisCode
+            checkCode: checkCode
+            checkName: checkName
+            path: auth/login
+            refresh: auth/refresh
+
+
+

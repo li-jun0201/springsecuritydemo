@@ -1,0 +1,18 @@
+本项目采用SpringBoot1.5.9, SpringSecurity,JWT, Redis,Swagger2，Jpa, 采用Restful api风格访问
+由于采用SpringData-JPA，不用建表，不用配置相关xml
+启动注意事项：
+1. 建议使用IDEA开发工具，并安装lombok插件
+如有问题 参考： http://www.cnblogs.com/holten/p/5729226.html
+2. 在application-dev.yml文件中配置好 JDBC， Redis的相关属性
+需要更改处 *****
+3. 执行Test26SecurityApplication 启动类
+项目启动成功后：
+swagger2路径： http://localhost/security/swagger-ui.html
+
+注册接口：  http://localhost/security/auth/register
+登陆接口：  http://localhost/security/auth/login
+
+角色相关
+普通用户访问：  http://localhost/security/auto/user
+管理用户访问：  http://localhost/security/auto/admin
+普通管理用户：  http://localhost/security/auto/all
